@@ -11,5 +11,6 @@ Student Document File Mananagement System Feature
 <li>Search</li>
 </ul>
 
-<p>Admin can modify status of each students and assign them in any cabinet.</p>
+<p>Admin can modify status of each students and assign them in any cabinet. In dashboard section, it shows 
+the total numbers of each Status of Students in organization. </p>
 
