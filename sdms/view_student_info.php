@@ -26,6 +26,10 @@ include('includes/dbconnection.php');
           <td><?php  echo $row['studentName'];?></td>
         </tr>
         <tr>
+          <th>Course</th>
+          <td><?php  echo $row['course'];?></td>
+        </tr>
+        <tr>
           <th>Cabinet</th>
           <td><?php  echo $row['cabinet'];?></td>
         </tr>

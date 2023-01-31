@@ -114,14 +114,13 @@ if(isset($_POST['login']))
             </b></p><!-- Link can also be removed -->
             <center><img src="company/logo.png" width="150" height="130" class="user-image" alt="User Image"/></center>
           </div>
-          <p class="login-box-msg"><b> <h4> <center> Welcome to Earist </center></h4> </b></p>
+          <p class="login-box-msg"><b> <h4> <center> STUDENT DOCUMENT INFORMATION </center></h4> </b></p>
 
           <form action="" method="post">
             <div class="input-group mb-3">
               <input type="text" name="username" class="form-control" placeholder="Username" required value="<?php if(isset($_COOKIE["user_login"])) { echo $_COOKIE["user_login"]; } ?>">
               <div class="input-group-append">
                 <div class="input-group-text">
-                  <span class="fas fa-envelope"></span>
                 </div>
               </div>
             </div>
@@ -129,7 +128,6 @@ if(isset($_POST['login']))
               <input type="password" name="password" class="form-control" placeholder="Password" required value="<?php if(isset($_COOKIE["userpassword"])) { echo $_COOKIE["userpassword"]; } ?>">
               <div class="input-group-append">
                 <div class="input-group-text">
-                  <span class="fas fa-lock"></span>
                 </div>
               </div>
             </div>

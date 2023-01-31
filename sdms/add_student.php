@@ -87,7 +87,7 @@ if (strlen($_SESSION['sid']==0)) {
                         </div>
                         <div class="form-group col-md-5">
                           <label for="names">Names</label>
-                          <input type="text" class="form-control" id="names" name="names" placeholder="Names" required>
+                          <input type="text" class="form-control" id="names" name="names" placeholder="Lastname, Firstname M.I" required>
                         </div>
                         <div class="form-group col-md-2">
                           <label for="age">Age</label>
@@ -107,8 +107,8 @@ if (strlen($_SESSION['sid']==0)) {
                           <label for="course">Course</label>
                           <select type="select" class="form-control" id="course" name="course">
                             <option>Select Course</option>
-                            <option value="Active">Bachelor of Science in information Technology</option>
-                            <option value="Inactive">Bachelor of Science in Computer Science</option>
+                            <option value="BSIT">Bachelor of Science in information Technology</option>
+                            <option value="BSCS">Bachelor of Science in Computer Science</option>
                           </select>
                         </div>
                         <div class="form-group col-md-2">

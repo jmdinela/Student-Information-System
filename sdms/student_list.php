@@ -110,6 +110,7 @@ if(isset($_GET['del']))
                         <th>Student Image</th>
                         <th>Student Number</th>
                         <th>Student Name</th>
+                        <th>Course</th>
                         <th>Year & Section </th>
                         <th>Status </th>
                         <th>Action</th>
@@ -126,6 +127,7 @@ if(isset($_GET['del']))
                           <td class="align-middle"><a href="#"><img src="studentimages/<?php echo htmlentities($row['studentImage']);?>" width="40" height="40"> </a></td>
                           <td><?php echo htmlentities($row['studentno']);?></td>
                           <td><?php echo htmlentities($row['studentName']);?></td>
+                          <td><?php echo htmlentities($row['course']);?></td>
                           <td><?php echo htmlentities($row['year']);?></td>
                           <td><?php echo htmlentities($row['status']);?></td>
                           <td>

@@ -87,7 +87,7 @@ header('location:logout.php');
                                     <p>Total Inactive Students</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-person-add"></i>
+                                    <i class="ion ion-stats-bars"></i>
                                 </div>
                                 <a href="student_list.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
