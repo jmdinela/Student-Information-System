@@ -10,18 +10,19 @@ if(isset($_POST['submit']))
   $regno=$_POST['regno'];
   $sex=$_POST['sex'];
   $age=$_POST['age'];
+  $course=$_POST['course'];
   $status=$_POST['status'];
   $cabinet=$_POST['cabinet'];
   $year=$_POST['year'];
-  $sql="update students set studentName=:studentname,studentno=:regno,gender=:sex,age=:age,year=:year,status=:status,cabinet=:cabinet where id='$sid'";
+  $sql="update students set studentName=:studentname,studentno=:regno,gender=:sex,age=:age,course=:course,year=:year,status=:status,cabinet=:cabinet where id='$sid'";
   $query = $dbh->prepare($sql);
   $query->bindParam(':studentname',$studentname,PDO::PARAM_STR);
   $query->bindParam(':regno',$regno,PDO::PARAM_STR);
   $query->bindParam(':sex',$sex,PDO::PARAM_STR);
   $query->bindParam(':age',$age,PDO::PARAM_STR);
+  $query->bindParam(':course',$course,PDO::PARAM_STR);
   $query->bindParam(':status',$status,PDO::PARAM_STR);
   $query->bindParam(':cabinet',$cabinet,PDO::PARAM_STR);
-  $query->bindParam(':class',$class,PDO::PARAM_STR);
   $query->execute();
   if ($query->execute()) {
     echo "<script>alert('updated successfull.');</script>";
@@ -40,7 +41,7 @@ if(isset($_POST['save']))
   $phone=$_POST['phone'];
   $contact=$_POST['contact'];
   $email=$_POST['email'];
-  $sql="update students set parentName=:parentname,relation=:relation,occupation=:occupation,contactno=:phone,nextphone=:contact,email=:email where id='$sid'";
+  $sql="update students set parentName=:parentname,relation=:relation,occupation=:occupation,contactno=:phone,email=:email where id='$sid'";
   $query = $dbh->prepare($sql);
   $query->bindParam(':parentname',$parentname,PDO::PARAM_STR);
   $query->bindParam(':relation',$relation,PDO::PARAM_STR);
@@ -57,27 +58,6 @@ if(isset($_POST['save']))
   }
 }
 
-if(isset($_POST['pass']))
-{
-  $sid=$_SESSION['edid'];
-  $country=$_POST['country'];
-  $district=$_POST['district'];
-  $state=$_POST['state'];
-  $village=$_POST['village'];
-  $sql="update students set country=:country,district=:district,state=:state,village=:village where id='$sid'";
-  $query = $dbh->prepare($sql);
-  $query->bindParam(':country',$country,PDO::PARAM_STR);
-  $query->bindParam(':district',$district,PDO::PARAM_STR);
-  $query->bindParam(':state',$state,PDO::PARAM_STR);
-  $query->bindParam(':village',$village,PDO::PARAM_STR);
-  $query->execute();
-  if ($query->execute()) {
-    echo "<script>alert('updated successfull.');</script>";
-    echo "<script>window.location.href ='student_list.php'</script>";
-  }else{
-    echo "<script>alert('something went wrong, please try again later');</script>";
-  }
-}
 
 if(isset($_POST['save2']))
 {
@@ -149,9 +129,6 @@ if(isset($_POST['save2']))
             <div class="card-header p-2">
               <ul class="nav nav-pills">
                 <li class="nav-item"><a class="nav-link active" href="#companydetail" data-toggle="tab">Registration Detail</a></li>
-                <li class="nav-item"><a class="nav-link" href="#companyaddress" data-toggle="tab">Parent Info</a></li>
-                <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Address</a></li>
-                <li class="nav-item"><a class="nav-link" href="#change" data-toggle="tab">Update Image</a></li>
               </ul>
             </div><!-- /.card-header -->
             <div class="card-body">
@@ -218,7 +195,7 @@ if(isset($_POST['save2']))
                 </form>
               </div>
               <!-- /.tab-pane -->
-              <div class=" tab-pane" id="companyaddress">
+              <div class=" tab-pane" id="parents">
                 <form role="form" id=""  method="post" enctype="multipart/form-data" class="form-horizontal" >
 
                   <div class="row">
@@ -247,13 +224,6 @@ if(isset($_POST['save2']))
                     <div class="form-group">
                       <label>Phone No.</label>
                       <input class="form-control" name="phone"  value="0<?php  echo $row['contactno'];?>"required>
-                    </div>        
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label>Mobile No 2.</label>
-                      <input class="form-control" name="contact" value="0<?php  echo $row['nextphone'];?>"  required>
                     </div>        
                   </div>
                   <!-- /.col -->
@@ -294,38 +264,8 @@ if(isset($_POST['save2']))
 
 
 
-          <div class="tab-pane" id="settings">
-            <form role="form" id=""  method="post" enctype="multipart/form-data" >
-              <div class="row">
-                <div class="form-group col-md-6">
-                  <label for="inputName" class="col-sm-2 col-md-6 col-form-label">Country</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="country" name="country" value="<?php  echo $row['country'];?>">
-                  </div>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputEmail" class="col-sm-2 col-md-6 col-form-label">District</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="district" id="district" value="<?php  echo $row['district'];?>">
-                  </div>
-                </div>
-              </div>
 
-              <div class="row">
-                <div class="form-group col-md-6">
-                  <label for="inputEmail" class="col-sm-2 col-md-6 col-form-label">State</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="state" id="state" value="<?php  echo $row['state'];?>">
-                  </div>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputName2" class="col-sm-2 col-md-6 col-form-label">Village</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="village" id="village" value="<?php  echo $row['village'];?>">
-                  </div>
-                </div>
-              </div>
-              <div class="form-group row">
+              <div class="modal-footer text-right">
                 <div class="offset-sm-2 col-sm-10">
                   <button type="submit" name="pass" class="btn btn-success">Submit</button>
                 </div>

@@ -11,6 +11,7 @@ if (strlen($_SESSION['sid']==0)) {
     $age=$_POST['age'];
     $studentno=$_POST['studentno'];
     $sex=$_POST['sex'];
+    $course=$_POST['course'];
     $year=$_POST['year'];
     $status=$_POST['status'];
     $cabinet=$_POST['cabinet'];
@@ -19,16 +20,11 @@ if (strlen($_SESSION['sid']==0)) {
     $ocupation=$_POST['ocupation'];
     $email=$_POST['email'];
     $phone=$_POST['phone'];
-    $nextphone=$_POST['nextphone'];
-    $country=$_POST['country'];
-    $district=$_POST['district'];
-    $state=$_POST['state'];
-    $village=$_POST['village'];
     $photo=$_FILES["photo"]["name"];
     move_uploaded_file($_FILES["photo"]["tmp_name"],"studentimages/".$_FILES["photo"]["name"]);
-    $query=mysqli_query($con, "insert into  students(studentno,StudentName,year,status,cabinet,age,gender,email,parentName,relation,occupation,country,district,state,village,contactno,nextphone,studentImage) value('$studentno','$names','$year','$status','$cabinet','$age','$sex','$email','$parentname','$relation','$ocupation','$country','$district','$state','$village','$phone','$nextphone','$photo')");
+    $query=mysqli_query($con, "insert into  students(studentno,StudentName,course,year,status,cabinet,age,gender,email,parentName,relation,occupation,contactno,studentImage) value('$studentno','$names','$course','$year','$status','$cabinet','$age','$sex','$email','$parentname','$relation','$ocupation','$phone','$photo')");
     if ($query) {
-      echo "<script>alert('Student has been registered.');</script>"; 
+      echo "<script>alert('Saved.');</script>"; 
       echo "<script>window.location.href = 'add_student.php'</script>";   
       $msg="";
     }
@@ -107,6 +103,14 @@ if (strlen($_SESSION['sid']==0)) {
                         </div>
                       </div>
                       <div class="row">
+                      <div class="form-group col-md-2">
+                          <label for="course">Course</label>
+                          <select type="select" class="form-control" id="course" name="course">
+                            <option>Select Course</option>
+                            <option value="Active">Bachelor of Science in information Technology</option>
+                            <option value="Inactive">Bachelor of Science in Computer Science</option>
+                          </select>
+                        </div>
                         <div class="form-group col-md-2">
                           <label for="age">Year and Section</label>
                           <select type="select" class="form-control" id="year" name="year" required>
@@ -165,11 +169,8 @@ if (strlen($_SESSION['sid']==0)) {
                         <div class="form-group col-md-2">
                           <label for="sex">Ocupation</label>
                           <input type="text" class="form-control" id="ocupation" name="ocupation" placeholder="occupation" required>
-
                         </div>
-                      </div>
-                      <div class="row">
-                        <div class="form-group col-md-3 ">
+                        <div class="form-group col-md-2">
                           <label for="phone1">Contact Number</label>
                           <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone"required>
                         </div>
