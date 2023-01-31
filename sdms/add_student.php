@@ -107,7 +107,7 @@ if (strlen($_SESSION['sid']==0)) {
                         </div>
                       </div>
                       <div class="row">
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-2">
                           <label for="age">Year and Section</label>
                           <select type="select" class="form-control" id="year" name="year" required>
                             <option>Select Class</option>
@@ -116,7 +116,7 @@ if (strlen($_SESSION['sid']==0)) {
                             <option value="3C">3C</option>
                           </select>
                         </div>
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-2">
                           <label for="age">Status</label>
                           <select type="select" class="form-control" id="status" name="status">
                             <option>Select Status</option>
@@ -127,11 +127,11 @@ if (strlen($_SESSION['sid']==0)) {
                             <option value="Graduate">Graduate</option>
                           </select>
                         </div>
-                        <div class="form-group col-md-3">
-                          <label for="cabinet">Cabinet</label>
-                          <input type="text" class="form-control" id="cabinet" name="cabinet" placeholder="Enter Cabinet No." required>
+                        <div class="form-group col-md-2">
+                          <label for="age">Email</label>
+                          <input type="text" class="form-control" id="email" name="email" placeholder="email" required>
                         </div>
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-2">
                           <label for="exampleInputFile">Student Photo</label>
                           <div class="input-group">
                             <div class="custom-file">
@@ -139,6 +139,11 @@ if (strlen($_SESSION['sid']==0)) {
                             </div>
                           </div>
                         </div>
+                        <div class="form-group col-md-2">
+                          <label for="cabinet">Cabinet</label>
+                          <input type="text" class="form-control" id="cabinet" name="cabinet" placeholder="Enter Cabinet No." required>
+                        </div>
+
                       </div>
                       <hr>
                       <span style="color: brown"><h5>Parent details</h5></span>
@@ -147,79 +152,32 @@ if (strlen($_SESSION['sid']==0)) {
                           <label for="parentname">Parent Name.</label>
                           <input type="text" class="form-control" id="parentname" name="parentname" placeholder="Enter Name" required>
                         </div>
-                        <div class="form-group col-md-5">
+                        <div class="form-group col-md-2">
                           <label for="relation">Relationship</label>
                           <select type="select" class="form-control" id="relation" name="relation"required>
                             <option>Select Relationship</option>
                             <option value="Father">Father</option>
                             <option value="Mother">Mother</option>
-                            <option value="Father">Uncel</option>
-                            <option value="Mother">Ant</option>
-                            <option value="Mother">Grand</option>
+                            <option value="Mother">Grandparents</option>
                           </select>
                         </div>
-                        <div class="form-group col-md-2">
-                          <label for="age">Email</label>
-                          <input type="text" class="form-control" id="email" name="email" placeholder="email" required>
-                        </div>
+
                         <div class="form-group col-md-2">
                           <label for="sex">Ocupation</label>
-                          <select type="select" class="form-control" id="ocupation" name="ocupation"required>
-                            <option>occupation</option>
-                            <option value="Doctor">Doctor</option>
-                            <option value="Engineer">Engineer</option>
-                            <option value="Bussiness man">Bussiness man</option>
-                            <option value="Teacher">Teacher</option>
-                            <option value="Driver">Driver</option>
-                            <option value="Pilot">Pilot</option>
-                            <option value="Software developer">Software developer</option>
-                            <option value="Farmer">Farmer</option>
-                          </select>
+                          <input type="text" class="form-control" id="ocupation" name="ocupation" placeholder="occupation" required>
+
                         </div>
                       </div>
                       <div class="row">
-                        <div class="form-group col-md-3 offset-md-6">
-                          <label for="phone1">Phone 1</label>
+                        <div class="form-group col-md-3 ">
+                          <label for="phone1">Contact Number</label>
                           <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone"required>
                         </div>
-                        <div class="form-group col-md-3">
-                          <label for="nextphone">Phone 2</label>
-                          <input type="text" class="form-control" id="nextphone" name="nextphone" placeholder="phone2" required>
+
                         </div>
                       </div>
                       <hr>
-                      <span style="color: brown"><h5>Address</h5></span>
-                      <div class="row">
-                        <div class="form-group col-md-3 ">
-                          <label for="phone1">Country.</label>
-                          <select type="select" class="form-control" id="country" name="country"required>
-                            <option>Select country</option>
-                            <option value="England">England</option>
-                            <option value="Spain">Spain</option>
-                            <option value="USA">USA</option>
-                            <option value="France">France</option>
-                            <option value="Russia">Russia</option>
-                            <option value="Dubai">Dubai</option>
-                            <option value="Uganda">Uganda</option>
-                            <option value="United Kingdom">United Kingdom</option>
-                            <option value="Canada">Canada</option>
-                            <option value="India">India</option>
-                            
-                          </select>
-                        </div>
-                        <div class="form-group col-md-3 ">
-                          <label for="district">District</label>
-                          <input type="text" class="form-control" id="district" name="district" placeholder="district"required>
-                        </div>
-                        <div class="form-group col-md-3 ">
-                          <label for="county">State</label>
-                          <input type="text" class="form-control" id="state" name="state" placeholder="State"required>
-                        </div>
-                        <div class="form-group col-md-3">
-                          <label for="village">Village</label>
-                          <input type="text" class="form-control" id="village" name="village" placeholder="Village"required>
-                        </div>
-                      </div>
+
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
