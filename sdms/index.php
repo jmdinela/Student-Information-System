@@ -150,7 +150,7 @@ if(isset($_POST['login']))
             </div>
           </form>
           <p class="mb-1">
-            <a href="forgotpassword.php">I forgot my password</a>
+            <a href="forgotpassword.php">Forgot Password</a>
           </p>
         </div>
         <!-- /.login-card-body -->

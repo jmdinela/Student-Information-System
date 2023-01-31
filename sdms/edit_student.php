@@ -10,15 +10,17 @@ if(isset($_POST['submit']))
   $regno=$_POST['regno'];
   $sex=$_POST['sex'];
   $age=$_POST['age'];
-  $stream=$_POST['stream'];
-  $class=$_POST['class'];
-  $sql="update students set studentName=:studentname,studentno=:regno,gender=:sex,age=:age,class=:class,stream=:stream where id='$sid'";
+  $status=$_POST['status'];
+  $cabinet=$_POST['cabinet'];
+  $year=$_POST['year'];
+  $sql="update students set studentName=:studentname,studentno=:regno,gender=:sex,age=:age,year=:year,status=:status,cabinet=:cabinet where id='$sid'";
   $query = $dbh->prepare($sql);
   $query->bindParam(':studentname',$studentname,PDO::PARAM_STR);
   $query->bindParam(':regno',$regno,PDO::PARAM_STR);
   $query->bindParam(':sex',$sex,PDO::PARAM_STR);
   $query->bindParam(':age',$age,PDO::PARAM_STR);
-  $query->bindParam(':stream',$stream,PDO::PARAM_STR);
+  $query->bindParam(':status',$status,PDO::PARAM_STR);
+  $query->bindParam(':cabinet',$cabinet,PDO::PARAM_STR);
   $query->bindParam(':class',$class,PDO::PARAM_STR);
   $query->execute();
   if ($query->execute()) {
@@ -188,15 +190,23 @@ if(isset($_POST['save2']))
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
-                        <label>Class</label>
-                        <input class="form-control" name="class" value="<?php  echo $row['class'];?>" required>
+                        <label>Year & Section</label>
+                        <input class="form-control" name="year" value="<?php  echo $row['year'];?>" required>
                       </div>        
                     </div>
                     <!-- /.col -->
                     <div class="col-md-4">
                       <div class="form-group">
-                        <label>Stream</label>
-                        <input class="form-control" name="stream" value="<?php  echo $row['stream'];?>" required>
+                        <label>Status</label>
+                        <input class="form-control" name="status" value="<?php  echo $row['status'];?>" required>
+                      </div>        
+                    </div>
+                    <!-- /.col --> 
+                  </div>
+                  <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Cabinet</label>
+                        <input class="form-control" name="cabinet" value="<?php  echo $row['cabinet'];?>" required>
                       </div>        
                     </div>
                     <!-- /.col --> 

@@ -11,8 +11,9 @@ if (strlen($_SESSION['sid']==0)) {
     $age=$_POST['age'];
     $studentno=$_POST['studentno'];
     $sex=$_POST['sex'];
-    $class=$_POST['class'];
-    $stream=$_POST['stream'];
+    $year=$_POST['year'];
+    $status=$_POST['status'];
+    $cabinet=$_POST['cabinet'];
     $parentname=$_POST['parentname'];
     $relation=$_POST['relation'];
     $ocupation=$_POST['ocupation'];
@@ -25,7 +26,7 @@ if (strlen($_SESSION['sid']==0)) {
     $village=$_POST['village'];
     $photo=$_FILES["photo"]["name"];
     move_uploaded_file($_FILES["photo"]["tmp_name"],"studentimages/".$_FILES["photo"]["name"]);
-    $query=mysqli_query($con, "insert into  students(studentno,StudentName,class,stream,age,gender,email,parentName,relation,occupation,country,district,state,village,contactno,nextphone,studentImage) value('$studentno','$names','$class','$stream','$age','$sex','$email','$parentname','$relation','$ocupation','$country','$district','$state','$village','$phone','$nextphone','$photo')");
+    $query=mysqli_query($con, "insert into  students(studentno,StudentName,year,status,cabinet,age,gender,email,parentName,relation,occupation,country,district,state,village,contactno,nextphone,studentImage) value('$studentno','$names','$year','$status','$cabinet','$age','$sex','$email','$parentname','$relation','$ocupation','$country','$district','$state','$village','$phone','$nextphone','$photo')");
     if ($query) {
       echo "<script>alert('Student has been registered.');</script>"; 
       echo "<script>window.location.href = 'add_student.php'</script>";   
@@ -107,24 +108,28 @@ if (strlen($_SESSION['sid']==0)) {
                       </div>
                       <div class="row">
                         <div class="form-group col-md-4">
-                          <label for="age">Age</label>
-                          <select type="select" class="form-control" id="class" name="class" required>
+                          <label for="age">Year and Section</label>
+                          <select type="select" class="form-control" id="year" name="year" required>
                             <option>Select Class</option>
-                            <option value="S1">S1</option>
-                            <option value=S2>S2</option>
-                            <option value="S3">S3</option>
-                            <option value="S4">S4</option>
-                            <option value="S5">S5</option>
-                            <option value="S6">S6</option>
+                            <option value="3A">3A</option>
+                            <option value=3B>3B</option>
+                            <option value="3C">3C</option>
                           </select>
                         </div>
                         <div class="form-group col-md-4">
-                          <label for="age">Stream<span style="color: blue;">*optional</span></label>
-                          <select type="select" class="form-control" id="stream" name="stream">
-                            <option>Select Stream</option>
-                            <option value="West">West</option>
-                            <option value="East">East</option>
+                          <label for="age">Status</label>
+                          <select type="select" class="form-control" id="status" name="status">
+                            <option>Select Status</option>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                            <option value="Dropout">Dropout</option>
+                            <option value="Transferee">Transferee</option>
+                            <option value="Graduate">Graduate</option>
                           </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for="cabinet">Cabinet</label>
+                          <input type="text" class="form-control" id="cabinet" name="cabinet" placeholder="Enter Cabinet No." required>
                         </div>
                         <div class="form-group col-md-4">
                           <label for="exampleInputFile">Student Photo</label>

@@ -41,7 +41,7 @@ header('location:logout.php');
                     <div class="row">
                         <div class="col-lg-4 col-6">
                             <!-- small box -->
-                            <div class="small-box bg-info">
+                            <div class="small-box bg-info ">
                                 <?php $query1=mysqli_query($con,"Select * from students ");
                                 $totalcust=mysqli_num_rows($query1);
                                 ?>
@@ -59,13 +59,50 @@ header('location:logout.php');
                         <div class="col-lg-4 col-6">
                             <!-- small box -->
                             <div class="small-box bg-success">
-                                <?php $query2=mysqli_query($con,"Select * from students where gender='Male'");
+                                <?php $query2=mysqli_query($con,"Select * from students where status='Active'");
                                 $totalmale=mysqli_num_rows($query2);
                                 ?>
                                 <div class="inner">
                                     <h3><?php echo $totalmale;?></h3>
 
-                                    <p>Total Male students</p>
+                                    <p>Total Active Student</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-stats-bars"></i>
+                                </div>
+                                <a href="student_list.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                        
+                        <div class="col-lg-4 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-secondary">
+                                <?php $query3=mysqli_query($con,"Select * from students where status='Inactive'");
+                                $totalfemale=mysqli_num_rows($query3);
+                                ?>
+                                <div class="inner">
+                                    <h3><?php echo $totalfemale;?></h3>
+
+                                    <p>Total Inactive Students</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-person-add"></i>
+                                </div>
+                                <a href="student_list.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                        <div class="col-lg-4 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-danger">
+                                <?php $query2=mysqli_query($con,"Select * from students where status='Dropout'");
+                                $totalmale=mysqli_num_rows($query2);
+                                ?>
+                                <div class="inner">
+                                    <h3><?php echo $totalmale;?></h3>
+
+                                    <p>Total Dropout Student</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-stats-bars"></i>
@@ -76,22 +113,41 @@ header('location:logout.php');
                         <!-- ./col -->
                         <div class="col-lg-4 col-6">
                             <!-- small box -->
-                            <div class="small-box bg-info">
-                                <?php $query3=mysqli_query($con,"Select * from students where gender='Female'");
-                                $totalfemale=mysqli_num_rows($query3);
+                            <div class="small-box bg-warning">
+                                <?php $query2=mysqli_query($con,"Select * from students where status='Transferee'");
+                                $totalmale=mysqli_num_rows($query2);
                                 ?>
                                 <div class="inner">
-                                    <h3><?php echo $totalfemale;?></h3>
+                                    <h3><?php echo $totalmale;?></h3>
 
-                                    <p>Total female students</p>
+                                    <p>Total Transferee Student</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-person-add"></i>
+                                    <i class="ion ion-stats-bars"></i>
                                 </div>
                                 <a href="student_list.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <!-- ./col -->
+                        <div class="col-lg-4 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-blue">
+                                <?php $query2=mysqli_query($con,"Select * from students where status='Graduate'");
+                                $totalmale=mysqli_num_rows($query2);
+                                ?>
+                                <div class="inner">
+                                    <h3><?php echo $totalmale;?></h3>
+
+                                    <p>Total Graduate Student</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-stats-bars"></i>
+                                </div>
+                                <a href="student_list.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- ./col -->
+
                         <!-- ./col -->
                     </div>
                 </div>
