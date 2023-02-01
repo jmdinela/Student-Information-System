@@ -28,5 +28,7 @@
   <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
+  <!-- Update Ui -->
+  <link rel="stylesheet" href="dist/css/style.css">
 
 </head>

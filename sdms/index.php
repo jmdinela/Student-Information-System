@@ -103,7 +103,12 @@ if(isset($_POST['login']))
 
 
   <?php @include("includes/head.php"); ?>
-  <body class="hold-transition login-page">
+  <body class="hold-transition login-page"
+  style= "background-image: url('company/bg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;"
+  >
     <!-- Logo box -->
     <div class="login-box">  
       <!-- /.login-logo -->
@@ -114,7 +119,7 @@ if(isset($_POST['login']))
             </b></p><!-- Link can also be removed -->
             <center><img src="company/logo.png" width="150" height="130" class="user-image" alt="User Image"/></center>
           </div>
-          <p class="login-box-msg"><b> <h4> <center> STUDENT DOCUMENT INFORMATION </center></h4> </b></p>
+          <p class="login-box-msg"><b> <h4> <center> STUDENT DOCUMENT MANAGEMENT SYSTEM </center></h4> </b></p>
 
           <form action="" method="post">
             <div class="input-group mb-3">
