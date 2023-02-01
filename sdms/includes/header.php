@@ -11,8 +11,34 @@
 
   <!-- Right navbar links -->
   <ul class="navbar-nav ml-auto">
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="dropdown" href="#"><i class="fas fa-th-large"></i> </a>
+    <li class="nav-item"> 
+      <a class="nav-link" data-toggle="dropdown">
+      <div class="user-panel ">
+      <?php
+      $eid=$_SESSION['sid'];
+      $sql="SELECT * from tblusers   where id=:eid ";                                    
+      $query = $dbh -> prepare($sql);
+      $query-> bindParam(':eid', $eid, PDO::PARAM_STR);
+      $query->execute();
+      $results=$query->fetchAll(PDO::FETCH_OBJ);
+
+      $cnt=1;
+      if($query->rowCount() > 0)
+      {
+        foreach($results as $row)
+        {    
+          ?>
+          <div class="image">
+            <img class="img-box"
+            src="staff_images/<?php echo htmlentities($row->userimage);?>" width="90px" height="90px" class="user-image"
+            alt="User profile picture">
+          </div>
+          <?php 
+        }
+      } ?>
+
+    </div>
+    </a>
       <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
         <div class="dropdown-divider"></div>
         <a href="profile.php" class="dropdown-item">

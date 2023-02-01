@@ -44,7 +44,7 @@ if(isset($_GET['delid']))
           <div class="row">
             <div class="col-lg-3 col-6">
               <!-- small box -->
-              <div class="small-box bg-primary">
+              <div class="small-box bg-black">
                 <div class="inner">
                   <?php
                   $sql ="SELECT id from tblusers";
@@ -78,7 +78,7 @@ if(isset($_GET['delid']))
             <!-- ./col -->
             <div class="col-lg-3 col-6">
               <!-- small box -->
-              <div class="small-box bg-primary">
+              <div class="small-box bg-pink">
                 <div class="inner">
                   <?php
                   $sql ="SELECT id from tblusers where sex='Female'";
@@ -95,7 +95,7 @@ if(isset($_GET['delid']))
             <!-- ./col -->
             <div class="col-lg-3 col-6">
               <!-- small box -->
-              <div class="small-box bg-primary">
+              <div class="small-box bg-green">
                 <div class="inner">
                   <?php
                   $sql ="SELECT id from tblusers  where status='1'";

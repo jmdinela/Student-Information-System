@@ -101,7 +101,7 @@ if (strlen($_SESSION['sid']==0)) {
                           </select>
                         </div>
                         <div class="form-group col-md-2">
-                          <label for="age">Year and Section</label>
+                          <label for="age">Yr and Section</label>
                           <select type="select" class="form-control" id="year" name="year" required>
                             <option>Select Class</option>
                             <option value="3A">3A</option>

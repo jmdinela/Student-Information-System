@@ -71,9 +71,9 @@
         <!-- User Menu -->
         <li class="nav-item">
           <a href="userregister.php" class="nav-link">
-           <i class="far fa-user nav-icon"></i>
+           <i class="fas fa-users mr-2"></i>
            <p>
-            Register User
+            Admin User
           </p>
         </a>
       </li><!-- /.user menu -->
