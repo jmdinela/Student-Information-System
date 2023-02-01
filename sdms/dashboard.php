@@ -41,7 +41,7 @@ header('location:logout.php');
                     <div class="row">
                         <div class="col-lg-4 col-6">
                             <!-- small box -->
-                            <div class="small-box bg-info ">
+                            <div class="small-box bg-purple ">
                                 <?php $query1=mysqli_query($con,"Select * from students ");
                                 $totalcust=mysqli_num_rows($query1);
                                 ?>
@@ -50,7 +50,7 @@ header('location:logout.php');
                                     <p>Total Students</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-bag"></i>
+                                    <i class="ion ion-add"></i>
                                 </div>
                                 <a href="student_list.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>

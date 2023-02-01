@@ -50,18 +50,7 @@ if (strlen($_SESSION['sid']==0)) {
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-          <div class="container-fluid">
-            <div class="row mb-2">
-              <div class="col-sm-6">
-              </div>
-              <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active">Add Student</li>
-                </ol>
-              </div>
-            </div>
-          </div><!-- /.container-fluid -->
+  
         </section>
 
         <!-- Main content -->
@@ -78,7 +67,7 @@ if (strlen($_SESSION['sid']==0)) {
                   <!-- form start -->
                   <form role="form" method="post" enctype="multipart/form-data">
                     <div class="card-body">
-                      <span style="color: brown"><h5>Student details</h5></span>
+                      <span style="color: blue"><h5>STUDENT DETAILS</h5></span>
                       <hr>
                       <div class="row">
                         <div class="form-group col-md-3">
@@ -150,11 +139,11 @@ if (strlen($_SESSION['sid']==0)) {
 
                       </div>
                       <hr>
-                      <span style="color: brown"><h5>Parent details</h5></span>
+                      <span style="color: blue"><h5>PARENTS DETAIL</h5></span>
                       <div class="row">
                         <div class="form-group col-md-3">
-                          <label for="parentname">Parent Name.</label>
-                          <input type="text" class="form-control" id="parentname" name="parentname" placeholder="Enter Name" required>
+                          <label for="parentname">Parent Name</label>
+                          <input type="text" class="form-control" id="parentname" name="parentname" placeholder="Lastname, First Name, MI." required>
                         </div>
                         <div class="form-group col-md-2">
                           <label for="relation">Relationship</label>

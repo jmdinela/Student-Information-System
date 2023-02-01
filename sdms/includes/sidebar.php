@@ -4,7 +4,7 @@
   <a href="dashboard.php" class="brand-link">
     <img src="company/logo.png" alt="Leading Estate" class="brand-image img-circle elevation-3"
     style="opacity: .8">
-    <span class="brand-text font-weight-light">Student Details</span>
+    <span class="brand-text font-weight-light">Admin Panel</span>
   </a>
 
   <!-- Sidebar -->
@@ -26,7 +26,7 @@
         {    
           ?>
           <div class="image">
-            <img class="img-circle"
+            <img class="img-box"
             src="staff_images/<?php echo htmlentities($row->userimage);?>" width="90px" height="90px" class="user-image"
             alt="User profile picture">
           </div>
