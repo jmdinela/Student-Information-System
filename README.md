@@ -1,5 +1,6 @@
-# Student Information System 
+# Student Document Tracker
  
+This system will use to track the data of student. Including the status of each student from year 
 Student Document File Mananagement System Feature
 
 <ul>
