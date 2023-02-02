@@ -151,7 +151,7 @@ if (strlen($_SESSION['sid']==0)) {
                             <option>Select Relationship</option>
                             <option value="Father">Father</option>
                             <option value="Mother">Mother</option>
-                            <option value="Mother">Grandparents</option>
+                            <option value="Guardian">Guardian</option>
                           </select>
                         </div>
 
