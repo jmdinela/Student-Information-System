@@ -104,9 +104,18 @@ if (strlen($_SESSION['sid']==0)) {
                           <label for="age">Yr and Section</label>
                           <select type="select" class="form-control" id="year" name="year" required>
                             <option>Select Class</option>
+                            <option value="1A">1A</option>
+                            <option value=1B>1B</option>
+                            <option value="1C">1C</option>
+                            <option value="2A">2A</option>
+                            <option value=2B>2B</option>
+                            <option value="2C">2C</option>
                             <option value="3A">3A</option>
                             <option value=3B>3B</option>
                             <option value="3C">3C</option>
+                            <option value="3A">4A</option>
+                            <option value=3B>4B</option>
+                            <option value="3C">4C</option>
                           </select>
                         </div>
                         <div class="form-group col-md-2">

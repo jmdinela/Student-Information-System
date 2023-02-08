@@ -37,7 +37,7 @@ header('location:logout.php');
                         <div class="col-lg-4 col-6">
                             <!-- small box -->
                             <div class="small-box bg-purple ">
-                                <?php $query1=mysqli_query($con,"Select * from students ");
+                                <?php $query1=mysqli_query($con,"Select * from students");
                                 $totalcust=mysqli_num_rows($query1);
                                 ?>
                                 <div class="inner">
@@ -65,7 +65,7 @@ header('location:logout.php');
                                 <div class="icon">
                                     <i class="ion ion-stats-bars"></i>
                                 </div>
-                                <a href="student_list.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="student_list_id=Active.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <!-- ./col -->
@@ -84,7 +84,7 @@ header('location:logout.php');
                                 <div class="icon">
                                     <i class="ion ion-stats-bars"></i>
                                 </div>
-                                <a href="student_list.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="student_list_id=Inactive.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <!-- ./col -->
@@ -102,7 +102,7 @@ header('location:logout.php');
                                 <div class="icon">
                                     <i class="ion ion-stats-bars"></i>
                                 </div>
-                                <a href="student_list.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="student_list_id=Dropout.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <!-- ./col -->
@@ -120,7 +120,7 @@ header('location:logout.php');
                                 <div class="icon">
                                     <i class="ion ion-stats-bars"></i>
                                 </div>
-                                <a href="student_list.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="student_list_id=Transferee.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <!-- ./col -->
@@ -138,7 +138,7 @@ header('location:logout.php');
                                 <div class="icon">
                                     <i class="ion ion-stats-bars"></i>
                                 </div>
-                                <a href="student_list.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="student_list_id=Graduate.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <!-- ./col -->
