@@ -80,7 +80,7 @@ if(isset($_GET['del']))
                 <!--   end modal -->
                
                 <div id="editData2" class="modal fade">
-                  <div class="modal-dialog ">
+                  <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h5 class="modal-title">Student Details</h5>
@@ -129,7 +129,25 @@ if(isset($_GET['del']))
                           <td><?php echo htmlentities($row['studentName']);?></td>
                           <td><?php echo htmlentities($row['course']);?></td>
                           <td><?php echo htmlentities($row['year']);?></td>
-                          <td><?php echo htmlentities($row['status']);?></td>
+                          <td>
+  <?php
+    if ($row['status'] === 'Active') {
+      $status_color = 'green';
+    } else if ($row['status'] === 'Inactive') {
+      $status_color = 'gray';
+    } else if ($row['status'] === 'Dropout') {
+      $status_color = 'red';
+    } else if ($row['status'] === 'Transferee') {
+      $status_color = 'yellow';
+    } else if ($row['status'] === 'Graduate') {
+      $status_color = 'blue';
+    } else {
+      $status_color = 'black';
+    }
+    echo "<span style='color: $status_color;'>" . htmlentities($row['status']) . "</span>";
+  ?>
+</td>
+
                           <td>
                             <button  class=" btn btn-primary btn-xs edit_data" id="<?php echo  $row['id']; ?>" title="click for edit">Edit</i></button>
                             <button  class=" btn btn-success btn-xs edit_data2" id="<?php echo  $row['id']; ?>" title="click for edit">View</i></button>
