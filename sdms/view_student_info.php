@@ -49,7 +49,7 @@ include('includes/dbconnection.php');
           <th>Email</th>
           <td>&nbsp;<?php  echo $row['email'];?></td>
         </tr>
-        <tr>
+        <tr style="color: blue;">
           <th>Cabinet</th>
           <td><?php  echo $row['cabinet'];?></td>
         </tr>
