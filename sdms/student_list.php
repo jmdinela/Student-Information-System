@@ -138,7 +138,7 @@ if(isset($_GET['del']))
     } else if ($row['status'] === 'Dropout') {
       $status_color = 'red';
     } else if ($row['status'] === 'Transferee') {
-      $status_color = 'yellow';
+      $status_color = 'orange';
     } else if ($row['status'] === 'Graduate') {
       $status_color = 'blue';
     } else {
