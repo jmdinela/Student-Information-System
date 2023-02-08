@@ -117,7 +117,7 @@ if(isset($_GET['del']))
                       </tr> 
                     </thead> 
                     <tbody>
-                      <?php $query=mysqli_query($con,"select * from students where status='Droupout'");
+                      <?php $query=mysqli_query($con,"select * from students where status='Dropout'");
                       $cnt=1;
                       while($row=mysqli_fetch_array($query))
                       {
