@@ -113,9 +113,9 @@ if (strlen($_SESSION['sid']==0)) {
                             <option value="3A">3A</option>
                             <option value=3B>3B</option>
                             <option value="3C">3C</option>
-                            <option value="3A">4A</option>
-                            <option value=3B>4B</option>
-                            <option value="3C">4C</option>
+                            <option value="4A">4A</option>
+                            <option value=4B>4B</option>
+                            <option value="4C">4C</option>
                           </select>
                         </div>
                         <div class="form-group col-md-2">

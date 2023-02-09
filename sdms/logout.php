@@ -2,7 +2,7 @@
 <?php
 session_start();
 include("includes/dbconnection.php");
-date_default_timezone_set('Africa/Kampala');
+date_default_timezone_set('Manila/Philippines');
 $ldate=date( 'd-m-Y h:i:s A', time () );
 $email=$_SESSION['email'];
 $sql="UPDATE userlog  SET logout=:ldate WHERE userEmail = '$email' ORDER BY id DESC LIMIT 1";

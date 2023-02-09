@@ -80,7 +80,7 @@ if(isset($_GET['del']))
                 <!--   end modal -->
                
                 <div id="editData2" class="modal fade">
-                  <div class="modal-dialog ">
+                  <div class="modal-dialog modal-xl ">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h5 class="modal-title">Student Details</h5>

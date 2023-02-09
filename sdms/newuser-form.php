@@ -69,7 +69,6 @@ if(isset($_POST['submit']))
         <select name="permission" class="form-control" required>
           <option value="Super User">Super User</option>
           <option value="Admin">Admin</option>
-          <option value="User">User</option>
         </select>
       </div>
       <div class="form-group col-4">
