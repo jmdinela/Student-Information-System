@@ -51,8 +51,14 @@ if(isset($_GET['del']))
                 <div class="card-header">
                   <h3 class="card-title">Manage Students</h3>
                   <div class="card-tools">
+                  <button id="fileButton" class="btn btn-sm btn-success" ><i class="fas fa-upload" ></i> Upload Data</button>
+
+                  <input type="file" id="fileInput" style="display: none;" />
+
                     <a href="add_student.php"><button type="button" class="btn btn-sm btn-primary"  ><span style="color: #fff;"><i class="fas fa-plus" ></i>  New Students</span>
-                    </button> </a>                  
+                    </button> </a>   
+                   <a href="download_student_data.php" class="btn btn-sm btn-warning"><span style="color: #fff;"><i class="fas fa-download
+                   " ></i> Download</a>           
                   </div>
                 </div>
                 <!-- /.card-header -->
