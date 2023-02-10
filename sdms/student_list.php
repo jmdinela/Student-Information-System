@@ -33,10 +33,8 @@ if(isset($_GET['del']))
               <h1>Student Details</h1>
             </div>
             <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-                <li class="breadcrumb-item active">Manange Students</li>
-              </ol>
+
+
             </div>
           </div>
         </div><!-- /.container-fluid -->
@@ -51,8 +49,14 @@ if(isset($_GET['del']))
                 <div class="card-header">
                   <h3 class="card-title">Manage Students</h3>
                   <div class="card-tools">
+                  <button id="fileButton" class="btn btn-sm btn-success" ><i class="fas fa-plus" ></i> Upload Data</button>
+
+                  <input type="file" id="fileInput" style="display: none;" />
+
                     <a href="add_student.php"><button type="button" class="btn btn-sm btn-primary"  ><span style="color: #fff;"><i class="fas fa-plus" ></i>  New Students</span>
-                    </button> </a>                  
+                    </button> </a>   
+                   <a href="download_student_data.php" class="btn btn-sm btn-warning"><span style="color: #fff;"><i class="fas fa-download
+                   " ></i> Download</a>           
                   </div>
                 </div>
                 <!-- /.card-header -->
@@ -152,7 +156,7 @@ if(isset($_GET['del']))
                             <button  class=" btn btn-primary btn-xs edit_data" id="<?php echo  $row['id']; ?>" title="click for edit">Edit</i></button>
                             <button  class=" btn btn-success btn-xs edit_data2" id="<?php echo  $row['id']; ?>" title="click for edit">View</i></button>
                             <a href="student_list.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')" class=" btn btn-danger btn-xs ">Delete</a>
-
+                          
                           </td>
                         </tr>
                         <?php $cnt=$cnt+1;
@@ -182,7 +186,13 @@ if(isset($_GET['del']))
     <!-- /.control-sidebar -->
   </div>
 
-  <!-- ./wrapper -->
+  <!-- ./upload -->
+  <script>
+  document.getElementById("fileButton").addEventListener("click", function() {
+    document.getElementById("fileInput").click();
+  });
+</script>
+<!-- ./wrapper -->
   <?php @include("includes/foot.php"); ?>
   <script type="text/javascript">
     $(document).ready(function(){
