@@ -6,8 +6,8 @@ include('includes/dbconnection.php');
 if(isset($_POST['submit']))
 {
   $sid=$_SESSION['edid']; 
-  $studentname=$_POST['studentname'];
-  $regno=$_POST['regno'];
+  $studentName=$_POST['studentName'];
+  $studentno=$_POST['studentno'];
   $sex=$_POST['sex'];
   $age=$_POST['age'];
   $course=$_POST['course'];
@@ -23,6 +23,7 @@ if(isset($_POST['submit']))
   $query->bindParam(':course',$course,PDO::PARAM_STR);
   $query->bindParam(':status',$status,PDO::PARAM_STR);
   $query->bindParam(':cabinet',$cabinet,PDO::PARAM_STR);
+  $query->bindParam(':year',$year,PDO::PARAM_STR);
   $query->execute();
   if ($query->execute()) {
     echo "<script>alert('updated successfull.');</script>";
@@ -35,19 +36,17 @@ if(isset($_POST['submit']))
 if(isset($_POST['save']))
 {
   $sid=$_SESSION['edid']; 
-  $parentname=$_POST['parentname'];
+  $parentName=$_POST['parentName'];
   $relation=$_POST['relation'];
   $occupation=$_POST['occupation'];
-  $phone=$_POST['phone'];
-  $contact=$_POST['contact'];
+  $contact=$_POST['contactno'];
   $email=$_POST['email'];
-  $sql="update students set parentName=:parentname,relation=:relation,occupation=:occupation,contactno=:phone,email=:email where id='$sid'";
+  $sql="update students set parentName=:parentName,relation=:relation,occupation=:occupation,contactno=:contactno,email=:email where id='$sid'";
   $query = $dbh->prepare($sql);
   $query->bindParam(':parentname',$parentname,PDO::PARAM_STR);
   $query->bindParam(':relation',$relation,PDO::PARAM_STR);
   $query->bindParam(':occupation',$occupation,PDO::PARAM_STR);
-  $query->bindParam(':phone',$phone,PDO::PARAM_STR);
-  $query->bindParam(':contact',$contact,PDO::PARAM_STR);
+  $query->bindParam(':contactno',$contactno,PDO::PARAM_STR);
   $query->bindParam(':email',$email,PDO::PARAM_STR);
   $query->execute();
   if ($query->execute()) {
@@ -102,7 +101,7 @@ if(isset($_POST['save2']))
                 alt="User profile picture">
               </div>
 
-              <h3 class="profile-username text-center"><?php  echo $row['name'];?></h3>
+              <h3 class="profile-username text-center"><?php  echo $row['studentName'];?></h3>
 
 
 
