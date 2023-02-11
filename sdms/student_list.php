@@ -10,7 +10,25 @@ if(isset($_GET['del']))
   mysqli_query($con,"delete from students where id = '".$_GET['id']."'");
   $_SESSION['delmsg']="student deleted !!";
 }
+
 ?>
+<?php
+  // Retrieve the data from the database
+  $studentno = $row['studentno'];
+  $studentName = $row['studentName'];
+  $age = $row['age'];
+  $sex = $row['sex'];
+  $course = $row['course'];
+  $year = $row['year'];
+  $status = $row['status'];
+  $email = $row['email'];
+  $cabinet = $row['cabinet'];
+  $parentName = $row['parentName'];
+  $relation = $row['relation'];
+  $occupation = $row['occupation'];
+  $contactno = $row['contactno'];
+?>
+
 <!DOCTYPE html>
 <html>
 <?php @include("includes/head.php"); ?>
@@ -96,7 +114,10 @@ if(isset($_GET['del']))
                         <?php @include("view_student_info.php");?>
                       </div>
                       <div class="modal-footer ">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                      <button type="button" class="btn btn-danger" id="downloadPDF"> Download as PDF</button>
+                    
                       </div>
                       <!-- /.modal-content -->
                     </div>
@@ -156,7 +177,7 @@ if(isset($_GET['del']))
                             <button  class=" btn btn-primary btn-xs edit_data" id="<?php echo  $row['id']; ?>" title="click for edit">Edit</i></button>
                             <button  class=" btn btn-success btn-xs edit_data2" id="<?php echo  $row['id']; ?>" title="click for edit">View</i></button>
                             <a href="student_list.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')" class=" btn btn-danger btn-xs ">Delete</a>
-                          
+                            
                           </td>
                         </tr>
                         <?php $cnt=$cnt+1;
@@ -226,5 +247,56 @@ if(isset($_GET['del']))
       });
     });
   </script>
+  
+
+  <script>
+
+<?php
+  // Retrieve the data from the database
+  $studentno = $row['studentno'];
+  $studentName = $row['studentName'];
+  $age = $row['age'];
+  $sex = $row['sex'];
+  $course = $row['course'];
+  $year = $row['year'];
+  $status = $row['status'];
+  $email = $row['email'];
+  $cabinet = $row['cabinet'];
+  $parentName = $row['parentName'];
+  $relation = $row['relation'];
+  $occupation = $row['occupation'];
+  $contactno = $row['contactno'];
+?>
+  document.getElementById("downloadPDF").addEventListener("click", function() {
+    var pdf = new jsPDF();
+
+    // Add the content to the PDF
+    pdf.text(20, 20, "Student Details");
+    pdf.text(20, 30, "Student Number: " + <?php echo json_encode($row['studentno']); ?>);
+    pdf.text(20, 40, "Name: " + <?php echo json_encode($row['studentName']); ?>);
+    pdf.text(20, 50, "Age: " + <?php echo json_encode($row['age']); ?>);
+    pdf.text(20, 60, "Gender: " + <?php echo json_encode($row['sex']); ?>);
+    pdf.text(20, 70, "Course: " + <?php echo json_encode($row['course']); ?>);
+    pdf.text(20, 80, "Yr & Section: " + <?php echo json_encode($row['year']); ?>);
+    pdf.text(20, 90, "Status: " + <?php echo json_encode($row['status']); ?>);
+    pdf.text(20, 100, "Email: " + <?php echo json_encode($row['email']); ?>);
+    pdf.text(20, 110, "Cabinet: " + <?php echo json_encode($row['cabinet']); ?>);
+    pdf.text(20, 120, "Parent Name: " + <?php echo json_encode($row['parentName']); ?>);
+    pdf.text(20, 130, "Relationship: " + <?php echo json_encode($row['relation']); ?>);
+    pdf.text(20, 140, "Occupation: " + <?php echo json_encode($row['occupation']); ?>);
+    pdf.text(20, 150, "Contact No.: 0" + <?php echo json_encode($row['contactno']); ?>);
+
+    // Download the PDF
+    pdf.save("student-details.pdf");
+  });
+</script>
+
+
+
+
+
+
+
+
 </body>
 </html>

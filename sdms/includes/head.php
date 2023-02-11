@@ -30,5 +30,6 @@
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
   <!-- Update Ui -->
   <link rel="stylesheet" href="dist/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
 
 </head>
