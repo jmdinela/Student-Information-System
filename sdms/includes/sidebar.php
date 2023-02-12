@@ -59,6 +59,15 @@
           </a>
         </li>
         <li class="nav-item">
+          <a href="cabinet.php" class="nav-link">
+          <i class="nav-icon fas fa-school"></i>
+            <p>
+              Cabinet
+            </p>
+          </a>
+        </li>
+
+        <li class="nav-item">
           <a href="student_list.php" class="nav-link">
             <i class="nav-icon far fa-user"></i>
             <p>

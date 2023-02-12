@@ -22,7 +22,7 @@ if (strlen($_SESSION['sid']==0)) {
     $phone=$_POST['phone'];
     $photo=$_FILES["photo"]["name"];
     move_uploaded_file($_FILES["photo"]["tmp_name"],"studentimages/".$_FILES["photo"]["name"]);
-    $query=mysqli_query($con, "insert into  students(studentno,StudentName,course,year,status,cabinet,age,gender,email,parentName,relation,occupation,contactno,studentImage) value('$studentno','$names','$course','$year','$status','$cabinet','$age','$sex','$email','$parentname','$relation','$ocupation','$phone','$photo')");
+    $query=mysqli_query($con, "insert into  students(studentno,StudentName,course,year,status,cabinet,age,sex,email,parentName,relation,occupation,contactno,studentImage) value('$studentno','$names','$course','$year','$status','$cabinet','$age','$sex','$email','$parentname','$relation','$ocupation','$phone','$photo')");
     if ($query) {
       echo "<script>alert('Saved.');</script>"; 
       echo "<script>window.location.href = 'add_student.php'</script>";   

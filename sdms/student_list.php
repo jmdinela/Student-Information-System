@@ -12,22 +12,6 @@ if(isset($_GET['del']))
 }
 
 ?>
-<?php
-  // Retrieve the data from the database
-  $studentno = $row['studentno'];
-  $studentName = $row['studentName'];
-  $age = $row['age'];
-  $sex = $row['sex'];
-  $course = $row['course'];
-  $year = $row['year'];
-  $status = $row['status'];
-  $email = $row['email'];
-  $cabinet = $row['cabinet'];
-  $parentName = $row['parentName'];
-  $relation = $row['relation'];
-  $occupation = $row['occupation'];
-  $contactno = $row['contactno'];
-?>
 
 <!DOCTYPE html>
 <html>
@@ -57,6 +41,8 @@ if(isset($_GET['del']))
           </div>
         </div><!-- /.container-fluid -->
       </section>
+
+      
 
       <!-- Main content -->
       <section class="content">
@@ -127,6 +113,32 @@ if(isset($_GET['del']))
                 </div>
                 <!--   end modal -->
 
+                <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Edit Record</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="cabinet">Cabinet:</label>
+            <input type="text" class="form-control" id="cabinet" required>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="saveChanges">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--   end cabinet_edit modal -->
+
                 <div class="card-body mt-2 " >
                   <table id="example1" class="table table-bordered table-hover">
                     <thead> 
@@ -136,6 +148,7 @@ if(isset($_GET['del']))
                         <th>Student Number</th>
                         <th>Student Name</th>
                         <th>Course</th>
+                        <th>Cabinet</th>
                         <th>Year & Section </th>
                         <th>Status </th>
                         <th>Action</th>
@@ -153,6 +166,8 @@ if(isset($_GET['del']))
                           <td><?php echo htmlentities($row['studentno']);?></td>
                           <td><?php echo htmlentities($row['studentName']);?></td>
                           <td><?php echo htmlentities($row['course']);?></td>
+                          <td><?php echo htmlentities($row['cabinet']);?></td>
+        
                           <td><?php echo htmlentities($row['year']);?></td>
                           <td>
   <?php
@@ -208,11 +223,34 @@ if(isset($_GET['del']))
   </div>
 
   <!-- ./upload -->
-  <script>
+
+<script>
   document.getElementById("fileButton").addEventListener("click", function() {
     document.getElementById("fileInput").click();
   });
 </script>
+<script>
+const saveChangesButton = document.querySelector('#saveChanges');
+
+saveChangesButton.addEventListener('click', event => {
+  const cabinet = document.querySelector('#cabinet').value;
+  const recordId = saveChangesButton.dataset.recordId;
+
+  // Make an AJAX request to update the database
+  fetch(`update-record.php?id=${recordId}&cabinet=${cabinet}`, {
+    method: 'POST'
+  })
+    .then(response => response.json())
+    .then(result => {
+      if (result.success) {
+        // Hide the modal
+        $('#editModal').modal('hide');
+
+        // Update the table cell with the new data
+        const row = document.querySelector(`[data-id="${recordId}"]`).parentNode.parentNode;
+        row.querySelector('td:first-child').textContent = cabinet
+</script>
+
 <!-- ./wrapper -->
   <?php @include("includes/foot.php"); ?>
   <script type="text/javascript">
