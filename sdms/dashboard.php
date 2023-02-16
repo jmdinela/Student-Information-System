@@ -142,9 +142,89 @@ header('location:logout.php');
                             </div>
                         </div>
 
-                  
+        <!-- /.Cabinet -->
+                        <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0 text-dark">Cabinet</h1>
+                        </div>
+                    </div><!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header --> 
+            <div class="container-fluid">
+           <div class="row">
+
+  <?php
+  $query = mysqli_query($con, "Select distinct cabinet from students ORDER BY cabinet");
+  while ($cabinet = mysqli_fetch_assoc($query)) {
+    $cabinet_id = $cabinet['cabinet'];
+    $cabinet_name = $cabinet['cabinet_name'];
+    $query2 = mysqli_query($con, "Select * from students where cabinet='$cabinet_id'");
+    $total = mysqli_num_rows($query2);
+
+    if ($total > 50) {
+      $bg_color = "bg-red";
+    } elseif ($total > 25) {
+      $bg_color = "bg-yellow";
+    } else {
+      $bg_color = "bg-green";
+    }
+    ?>
+    <div class="col-lg col-4">
+      <div class="small-box <?php echo $bg_color; ?>" onclick="toggleStudentList('<?php echo $cabinet_id; ?>')">
+        <div class="inner">
+          <h3><?php echo $total; ?></h3>
+          <p>Cabinet: <?php echo $cabinet_id; ?></p>
+        </div>
+      </div>
+      <div id="student-list-<?php echo $cabinet_id; ?>" class="student-list">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Student Image</th>
+              <th>Student Number</th>
+              <th>Student Name</th>
+              <th>Course</th>
+              <th>Cabinet</th>
+              <th>Year & Section</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $cnt = 1;
+            while ($row = mysqli_fetch_array($query2)) {
+              ?>
+              <tr>
+                <td><?php echo htmlentities($cnt); ?></td>
+                <td class="align-middle"><a href="#"><img src="studentimages/<?php echo htmlentities($row['studentImage']); ?>" width="40" height="40"> </a></td>
+                <td><?php echo htmlentities($row['studentno']); ?></td>
+                <td><?php echo htmlentities($row['studentName']); ?></td>
+                <td><?php echo htmlentities($row['course']); ?></td>
+                <td><?php echo htmlentities($row['cabinet']); ?></td>
+                <td><?php echo htmlentities($row['year']); ?></td>
+                <td><?php echo htmlentities($row['status']); ?></td>
+              </tr>
+              <?php $cnt = $cnt + 1;
+            } ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  <?php } ?>
+</div>
 
 
+
+                
+                
+
+<!-- ./col -->
+<!-- ./col -->
 
                         <!-- ./col -->
 
@@ -172,4 +252,32 @@ header('location:logout.php');
 
 <?php @include("includes/foot.php"); ?>
 </body>
+<style>
+  .student-list {
+    display: none;
+  }
+
+  .student-list.active {
+    display: block;
+  }
+</style>
+<script>
+  function toggleStudentList(cabinetId) {
+    var studentList = document.getElementById('student-list-' + cabinetId);
+    studentList.classList.toggle('active');
+  }
+  
+</script>
+<script>
+$(document).ready(function(){
+    $('#studentModal').on('hidden.bs.modal', function () {
+        $(this).removeData('bs.modal');
+    });
+});
+$(document).ready(function(){
+    $('#studentModal').on('mouseleave', function () {
+        $('#studentModal').modal('hide');
+    });
+});
+</script>
 </html>

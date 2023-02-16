@@ -142,11 +142,27 @@ if (strlen($_SESSION['sid']==0)) {
                           </div>
                         </div>
                         <div class="form-group col-md-2">
-                          <label for="cabinet">Cabinet</label>
-                          <input type="text" class="form-control" id="cabinet" name="cabinet" placeholder="Enter Cabinet No." required>
-                        </div>
+                        <label for="cabinet">Student Cabinet</label>
+                        <select  name="cabinet" class="form-control" required='true'>
+                          <option value="">Select Class</option>
+                         <?php 
+
+                            $sql2 = "SELECT * from cabinet ";
+                            $query2 = $dbh -> prepare($sql2);
+                            $query2->execute();
+                            $result2=$query2->fetchAll(PDO::FETCH_OBJ);
+
+                                foreach($result2 as $row1)
+                              {          
+                                 ?>  
+                            <option value="<?php echo htmlentities($row1->cabinet_name);?>"><?php echo htmlentities($row1->cabinet_name);?></option>
+                                  <?php } ?> 
+                        </select>
+                      </div>
 
                       </div>
+
+
                       <hr>
                       <span style="color: blue"><h5>PARENTS DETAIL</h5></span>
                       <div class="row">

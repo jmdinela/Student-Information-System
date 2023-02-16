@@ -2,7 +2,7 @@
  <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="dashboard.php" class="brand-link">
-    <img src="company/logo.png" alt="Leading Estate" class="brand-image img-circle elevation-3"
+    <img src="company/icon.png" alt="Leading Estate" class="brand-image img-circle elevation-3"
     style="opacity: .8">
     <span class="brand-text font-weight-light">Admin Panel</span>
   </a>

@@ -147,7 +147,6 @@ if(isset($_POST['save2']))
     <div class="form-group col-md-4">
       <label for="year">Yr & Section</label>
       <select type="select" class="form-control" id="year" name="year" value="<?php echo $row['year'];?>">
-                            <option>Select Class</option>
                             <option value="1A">1A</option>
                             <option value=1B>1B</option>
                             <option value="1C">1C</option>
@@ -174,7 +173,19 @@ if(isset($_POST['save2']))
     </div>
     <div class="form-group col-md-4">
       <label for="cabinet">Cabinet</label>
-      <input type="text" class="form-control" id="cabinet" name="cabinet" value="<?php echo $row['cabinet'];?>">
+      <select  name="cabinet" class="form-control"  placeholder="<?php echo $row['cabinet'];?>"required='true'>
+                         <?php 
+                            $sql2 = "SELECT * from cabinet ";
+                            $query2 = $dbh -> prepare($sql2);
+                            $query2->execute();
+                            $result2=$query2->fetchAll(PDO::FETCH_OBJ);
+
+                                foreach($result2 as $row1)
+                              {          
+                                 ?>  
+                            <option value="<?php echo htmlentities($row1->cabinet_name);?>"><?php echo htmlentities($row1->cabinet_name);?></option>
+                                  <?php } ?> 
+                        </select>
     </div>
     <div class="form-group col-md-4">
       <label for="sex">Sex</label>

@@ -12,3 +12,10 @@
   -ms-flex-pack: center;
   justify-content: center;
 }
+.student-list {
+  display: none;
+}
+
+.student-list.active {
+  display: block;
+}

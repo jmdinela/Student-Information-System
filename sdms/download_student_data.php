@@ -9,7 +9,7 @@ $result = mysqli_query($con,$sql);
 
 $file = fopen("php://output", "w");
 
-fputcsv($file, array("id", "class", "studentno", "studentName", "age", "course", "year", "Status"));
+fputcsv($file, array("id", "class", "studentno", "studentName", "age", "course", "year", "Status", "Cabinet", "Sex", "Email", "Contact No", "Parent Name", "Relationship", "Occupation"));
 
 while ($row = mysqli_fetch_assoc($result)) {
     fputcsv($file, $row);

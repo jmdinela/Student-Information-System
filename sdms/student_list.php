@@ -139,6 +139,8 @@ if(isset($_GET['del']))
 </div>
 <!--   end cabinet_edit modal -->
 
+
+
                 <div class="card-body mt-2 " >
                   <table id="example1" class="table table-bordered table-hover">
                     <thead> 
@@ -166,7 +168,8 @@ if(isset($_GET['del']))
                           <td><?php echo htmlentities($row['studentno']);?></td>
                           <td><?php echo htmlentities($row['studentName']);?></td>
                           <td><?php echo htmlentities($row['course']);?></td>
-                          <td><?php echo htmlentities($row['cabinet']);?></td>
+                          <td><?php echo htmlentities($row['cabinet']);?>  <a href="#" data-toggle="modal" data-target="#editData" onclick="update_student('<?php echo $row['id']; ?>');"><i class="fas fa-edit"></i></a>
+</td>
         
                           <td><?php echo htmlentities($row['year']);?></td>
                           <td>
@@ -287,54 +290,31 @@ saveChangesButton.addEventListener('click', event => {
   </script>
   
 
-  <script>
 
-<?php
-  // Retrieve the data from the database
-  $studentno = $row['studentno'];
-  $studentName = $row['studentName'];
-  $age = $row['age'];
-  $sex = $row['sex'];
-  $course = $row['course'];
-  $year = $row['year'];
-  $status = $row['status'];
-  $email = $row['email'];
-  $cabinet = $row['cabinet'];
-  $parentName = $row['parentName'];
-  $relation = $row['relation'];
-  $occupation = $row['occupation'];
-  $contactno = $row['contactno'];
-?>
-  document.getElementById("downloadPDF").addEventListener("click", function() {
-    var pdf = new jsPDF();
 
-    // Add the content to the PDF
-    pdf.text(20, 20, "Student Details");
-    pdf.text(20, 30, "Student Number: " + <?php echo json_encode($row['studentno']); ?>);
-    pdf.text(20, 40, "Name: " + <?php echo json_encode($row['studentName']); ?>);
-    pdf.text(20, 50, "Age: " + <?php echo json_encode($row['age']); ?>);
-    pdf.text(20, 60, "Gender: " + <?php echo json_encode($row['sex']); ?>);
-    pdf.text(20, 70, "Course: " + <?php echo json_encode($row['course']); ?>);
-    pdf.text(20, 80, "Yr & Section: " + <?php echo json_encode($row['year']); ?>);
-    pdf.text(20, 90, "Status: " + <?php echo json_encode($row['status']); ?>);
-    pdf.text(20, 100, "Email: " + <?php echo json_encode($row['email']); ?>);
-    pdf.text(20, 110, "Cabinet: " + <?php echo json_encode($row['cabinet']); ?>);
-    pdf.text(20, 120, "Parent Name: " + <?php echo json_encode($row['parentName']); ?>);
-    pdf.text(20, 130, "Relationship: " + <?php echo json_encode($row['relation']); ?>);
-    pdf.text(20, 140, "Occupation: " + <?php echo json_encode($row['occupation']); ?>);
-    pdf.text(20, 150, "Contact No.: 0" + <?php echo json_encode($row['contactno']); ?>);
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#downloadPDF').click(function() {
+      var doc = new jsPDF();
+      var elementHTML = $('#info_update2').html();
+      var specialElementHandlers = {
+        '#elementH': function(element, renderer) {
+          return true;
+        }
+      };
 
-    // Download the PDF
-    pdf.save("student-details.pdf");
+      doc.fromHTML(elementHTML, 15, 15, {
+        'width': 170,
+        'elementHandlers': specialElementHandlers
+      });
+      doc.save('student-details.pdf');
+    });
   });
 </script>
 
-
-
-
-
-
-
+<script src="build/js/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
 
 </body>
 </html>

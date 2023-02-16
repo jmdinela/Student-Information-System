@@ -117,9 +117,9 @@ if(isset($_POST['login']))
           <div class="login-logo">
             <p><b>
             </b></p><!-- Link can also be removed -->
-            <center><img src="company/logo.png" width="150" height="130" class="user-image" alt="User Image"/></center>
+            <center><img src="company/favicon.png" width="300" height="150" class="user-image" alt="User Image"/></center>
           </div>
-          <p class="login-box-msg"><b> <h4> <center> STUDENT INFORMATION MANAGEMENT SYSTEM </center></h4> </b></p>
+          
 
           <form action="" method="post">
             <div class="input-group mb-3">
