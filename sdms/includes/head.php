@@ -1,6 +1,11 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="twitter:card" content="summary">
+    <meta property="og:title" content="Thumbnail example">
+    <meta property="og:description" content="Student Information System">
+    <meta property="og:image" content="company/logo.png" href="company/logo.png">
+    <meta property="og:url" content="http://simsdb.mywebcommunity.org/sdms">
   <title>Student Details management system </title>
   <link rel="icon" type="image/x-icon" href="company/icon.png">
   <!-- Tell the browser to be responsive to screen width -->
