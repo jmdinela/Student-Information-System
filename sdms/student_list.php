@@ -60,7 +60,8 @@ if(isset($_GET['del']))
                     <a href="add_student.php"><button type="button" class="btn btn-sm btn-primary"  ><span style="color: #fff;"><i class="fas fa-plus" ></i>  New Students</span>
                     </button> </a>   
                    <a href="download_student_data.php" class="btn btn-sm btn-warning"><span style="color: #fff;"><i class="fas fa-download
-                   " ></i> Download</a>           
+                   " ></i> Download</a> 
+                             
                   </div>
                 </div>
                 <!-- /.card-header -->
